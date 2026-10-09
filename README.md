@@ -24,8 +24,8 @@ performance-similarity results.
 
 ## Open the visualizer
 
-The hosted visualizer is available at
-[leorautenburger.github.io/BigDataBowl-Tight-End-Versatility-Visualiser](https://leorautenburger.github.io/BigDataBowl-Tight-End-Versatility-Visualiser/).
+> **Note:** The GitHub Pages link may not load reliably. Download or clone this
+> repository and run the visualizer locally using the steps below.
 
 To run it locally:
 
