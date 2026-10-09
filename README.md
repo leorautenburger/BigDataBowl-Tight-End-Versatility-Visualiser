@@ -25,9 +25,10 @@ performance-similarity results.
 ## Recommended: use the offline visualizer
 
 Download [`offline/Tight_End_Versatility_Evaluator.html`](offline/Tight_End_Versatility_Evaluator.html)
-and open it in a modern browser. It contains the visualizer, methodology, and
-all 121 player profiles in one file, with no installation, web server, or
-internet connection required.
+from GitHub by opening the file and selecting **Download raw file**. Then
+double-click the downloaded file to open it in a modern browser. It contains
+the visualizer, methodology, and all 121 player profiles in one file, with no
+installation, web server, or internet connection required.
 
 ## Open the visualizer
 
