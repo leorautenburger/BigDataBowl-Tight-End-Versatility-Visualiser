@@ -22,6 +22,13 @@ but is provisional because its uploaded source table lacks upstream
 methodology in this repository; it does not affect the overall grade or
 performance-similarity results.
 
+## Recommended: use the offline visualizer
+
+Download [`offline/Tight_End_Versatility_Evaluator.html`](offline/Tight_End_Versatility_Evaluator.html)
+and open it in a modern browser. It contains the visualizer, methodology, and
+all 121 player profiles in one file, with no installation, web server, or
+internet connection required.
+
 ## Open the visualizer
 
 > **Note:** The GitHub Pages link may not load reliably. Download or clone this

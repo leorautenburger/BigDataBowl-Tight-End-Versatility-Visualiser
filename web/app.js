@@ -119,9 +119,13 @@ function populateSelect(selector, values) {
 }
 
 async function start() {
-  const response = await fetch("data/search_index.json");
-  if (!response.ok) throw new Error("Could not load the coach profile index.");
-  players = await response.json();
+  if (Array.isArray(window.__TE_PLAYER_INDEX__)) {
+    players = window.__TE_PLAYER_INDEX__;
+  } else {
+    const response = await fetch("data/search_index.json");
+    if (!response.ok) throw new Error("Could not load the coach profile index.");
+    players = await response.json();
+  }
   $("#eligible-count").textContent = players.filter((player) => player.profile_eligible).length;
   $("#axis-count").textContent = AXES.length;
   $("#snap-count").textContent = `${(players.reduce((sum, player) => sum + number(player.snaps), 0) / 1000).toFixed(1)}k`;
