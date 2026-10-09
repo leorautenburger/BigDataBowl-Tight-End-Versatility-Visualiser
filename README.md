@@ -1,19 +1,33 @@
-# TE Versatility Scout: Measuring Dual-Threat Tight End Value
+# The Tight End Versatility Evaluator
 
-TE Versatility Scout is a coach-facing NFL Big Data Bowl tool for comparing
-tight ends as protectors, chip-and-release threats, route winners, coverage
-stressors, and open-field creators.
+The Tight End Versatility Evaluator is an interactive visualizer built from
+NFL Big Data Bowl Regional Event Data and PFF scouting labels. It brings
+together a TE's pass-protection impact, chip-and-release value, route threat,
+coverage stress, open-field creation, and provisional run-game impact in a
+six-category radar chart.
 
-## Football question
+Tight ends are naturally versatile players. Choosing whether to defend one
+with a defensive back or linebacker can create difficult matchup decisions,
+and their role can change the protection and receiving structure of an entire
+offense. This evaluator helps:
 
-**Which tight end best fits a specific offensive need—and can they help protect
-the quarterback without removing themselves as a receiving option?**
+- **Coaches** quickly identify a TE's threats and tendencies when game-planning
+  an upcoming matchup.
+- **Scouts** understand a TE's offensive role and compare it with team needs.
+- **Broadcasters** explain a TE's contribution beyond box-score statistics.
 
-The signature metric is **Protection-to-Availability Value (PAV)**: matched
-extra protection-window time from a chip-and-release assignment, weighted by
-the TE's receiving availability.
+The overall versatility grade is the average of the five validated pass-game
+categories. The sixth category, Run-Game Impact, remains visible on the radar
+but is provisional because its uploaded source table lacks upstream
+methodology in this repository; it does not affect the overall grade or
+performance-similarity results.
 
-## View the interactive visualization
+## Open the visualizer
+
+The hosted visualizer is available at
+[leorautenburger.github.io/BigDataBowl-Tight-End-Versatility-Visualiser](https://leorautenburger.github.io/BigDataBowl-Tight-End-Versatility-Visualiser/).
+
+To run it locally:
 
 ```bash
 python3 -m venv .venv
@@ -21,45 +35,23 @@ python3 -m venv .venv
 .venv/bin/python -m src.serve_visualization
 ```
 
-Open [http://127.0.0.1:8000/web/](http://127.0.0.1:8000/web/). The application
-supports player/team search, rankings, archetype filters, deployment filters,
-performance/role similarity, player profiles, and an in-app methodology page.
+Then open [http://127.0.0.1:8000/web/](http://127.0.0.1:8000/web/).
+
+The visualizer supports player and team search, category rankings, archetype
+and snap filters, role and performance similarity, player profiles, and an
+in-app methodology page explaining every statistic and caveat.
 
 ## Included materials
 
 | Path | Contents |
 | --- | --- |
 | `src/` | Python metric, profile, search, and visualization-server code. |
-| `web/` | Dependency-free interactive visualization. |
+| `web/` | Local interactive visualization assets. |
+| `docs/` | Self-contained GitHub Pages version of the visualizer. |
 | `output/` | Player tables, play-level evidence, validation outputs, and metric definitions. |
-| `te_run_metrics.csv` | Uploaded run-game source table used for the provisional run axis. |
+| `te_run_metrics.csv` | Source table for the provisional run-game axis. |
 
-The profile summarizes Protection Impact, Chip-to-Route Value, Route Threat,
-Coverage Stress, Open-Field Creation, and provisional Run-Game Impact.
-Deployment Breadth explains role usage and archetypes but does not improve a
-player's performance score.
-
-## Rebuild the final profile
-
-```bash
-.venv/bin/python -m src.metrics.run_game_impact
-.venv/bin/python -m src.coach_report
-```
-
-The UI reads `output/coach_report/search_index.json`. Every component metric
-also retains `players.csv`, play-level evidence, and `summary.json` under
-`output/<metric>/`.
-
-## Scope and limitations
-
-The tracking study covers 2021 Weeks 1–8 and is pass-play focused. Metrics are
+The tracking study covers 2021 Weeks 1-8 and is pass-play focused. Metrics are
 transparent observational estimates, not proprietary NFL grades or causal
-claims.
-
-Run-Game Impact is **provisional**: the uploaded run table has no upstream
-methodology in this repository. It is visible and searchable, but excluded
-from the overall score and performance-similarity calculation. Players without
-a matching run row show `N/A`, not a zero score.
-
-See the in-app **Methodology** page for every formula, statistic, weighting
-rule, and caveat.
+claims. See the in-app **Methodology** page for formulas, weighting rules, and
+scope limitations.
