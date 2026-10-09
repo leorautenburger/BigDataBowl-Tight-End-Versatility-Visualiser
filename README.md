@@ -27,15 +27,24 @@ performance-similarity results.
 > **Note:** The GitHub Pages link may not load reliably. Download or clone this
 > repository and run the visualizer locally using the steps below.
 
-To run it locally:
+`localhost` and `127.0.0.1` only refer to the laptop on which the server is
+running. They cannot be opened from a different laptop.
+
+To run the visualizer on another laptop:
 
 ```bash
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
-.venv/bin/python -m src.serve_visualization
+# 1. Download the repository ZIP from GitHub and extract it.
+# 2. In a terminal, enter the extracted repository folder.
+cd BigDataBowl-Tight-End-Versatility-Visualiser
+
+# 3. Start the visualizer (Python 3 is the only requirement).
+python3 -m src.serve_visualization
 ```
 
-Then open [http://127.0.0.1:8000/web/](http://127.0.0.1:8000/web/).
+Then, on that same laptop, open
+[http://127.0.0.1:8000/web/](http://127.0.0.1:8000/web/). Do not open the
+HTML file directly with `file://`, because the browser will not be able to load
+the player data.
 
 The visualizer supports player and team search, category rankings, archetype
 and snap filters, role and performance similarity, player profiles, and an
