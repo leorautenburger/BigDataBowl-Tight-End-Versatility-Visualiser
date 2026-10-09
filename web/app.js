@@ -119,7 +119,7 @@ function populateSelect(selector, values) {
 }
 
 async function start() {
-  const response = await fetch("../output/coach_report/search_index.json");
+  const response = await fetch("data/search_index.json");
   if (!response.ok) throw new Error("Could not load the coach profile index.");
   players = await response.json();
   $("#eligible-count").textContent = players.filter((player) => player.profile_eligible).length;
